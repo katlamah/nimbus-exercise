@@ -1,0 +1,12 @@
+TOPIC  :  How Activiti is used in the framework for BPM
+
+Activiti is an open source BPM provided by Apache, Nimbus has integrated the Activiti BPM to hide some of the boiler plate code and hide the complexity of the integration.
+	Nimbus utilzes the opensource jar     <activiti-spring-boot.version>6.0.0.Beta4</activiti-spring-boot.version> which is configured inside the Nimbus-parent module pom.xml.
+	Configuration for the BPM engine is done via the class BPMEngineConfig, which has the setup for DB,definitions,rules and custom deployers.
+	Each active Definition is registered as a bean inside the spring-boot , ActivitiProcessAsBeanRegistrar does the job of registering the beans with spring boot.
+	
+	DefaultProcessConfig class provides all the bean definitions required for the Activiti.
+	
+	ActivitiBPMGateway provides major functionality of the BPM process  start of the process etc.
+Nimbus-extn-activiti module is integrated with the designer , provided with custom component builders.
+	
